@@ -36,15 +36,12 @@ Test a trained model by modifying the variable ```latest_checkpoint``` in ```tes
 cd Non-Pretraining-Based/C2P-X/scripts/
 bash test.sh
 ```
-The testing process is recorded in ```log_test_*.txt``` file. <br>
-A "output_test.txt" file which records scores for each context-persona pair will be saved to the path of ```latest_checkpoint```. <br>
-Modify the variable ```test_out_filename``` in ```compute_metrics.py``` and then run the following command, various metrics will be shown.
+The testing process is recorded in ```log_test_*.txt``` file. A "output_test.txt" file which records scores for each context-persona pair will be saved to the path of ```latest_checkpoint```. Modify the variable ```test_out_filename``` in ```compute_metrics.py``` and then run the following command, various metrics will be shown.
 ```
 python compute_metrics.py
 ```
 
-You can choose a baseline model by comment/uncomment a model package (from ```model_BOW```, ```model_BiLSTM```, ```model_Transformer``` and ```model_ESIM```) in the first several lines in ```train.py```. <br>
-The same process and commands for those Non-Pretraining-Based U2P-X Models.
+You can choose a baseline model by comment/uncomment a model package (from ```model_BOW```, ```model_BiLSTM```, ```model_Transformer``` and ```model_ESIM```) in the first several lines in ```train.py```. The same process and commands can be done for those Non-Pretraining-Based U2P-X Models.
 
 
 ## Pretraining-Based Models
@@ -71,10 +68,9 @@ Modify the variable ```test_out_filename``` in ```compute_metrics.py``` and then
 python compute_metrics.py
 ```
 
-The same process and commands for U2P-BERT.
+The same process and commands can be done for U2P-BERT.
 
-**NOTE**: Since the dataset is small, each model was trained for 10 times with identical architectures and different random initializations. <br>
-Thus, we report (mean ± standard deviation) in our paper.
+**NOTE**: Since the dataset is small, each model was trained for 10 times with identical architectures and different random initializations. Thus, we report (mean ± standard deviation) in our paper.
 
 
 ## Cite
