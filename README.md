@@ -1,6 +1,5 @@
 # Detecting Speaker Personas from Conversational Texts
-This repository contains the source code and the dataset for the _EMNLP 2021_ paper _Detecting Speaker Personas from Conversational Texts_. Jia-Chen Gu, Zhen-Hua Ling, Yu Wu, Quan Liu, Zhigang Chen, Xiaodan Zhu. <br>
-Hopefully, we will release the code and the datset at the beginning of October. <br>
+This repository contains the source code and the dataset for the _EMNLP 2021_ paper [Detecting Speaker Personas from Conversational Texts](https://arxiv.org/pdf/2109.01330.pdf). Jia-Chen Gu, Zhen-Hua Ling, Yu Wu, Quan Liu, Zhigang Chen, Xiaodan Zhu. <br>
 
 
 ## Introduction
@@ -9,6 +8,94 @@ Personas are useful for dialogue response prediction. However, the personas used
 <div align=center><img src="image/task.png" width=50%></div> <br>
 
 <div align=center><img src="image/result.png" width=80%></div>
+
+
+## Dependencies
+Python 3.6 <br>
+Tensorflow 1.13.1
+
+
+## Download
+- Download the [BERT released by the Google research](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip), 
+  and move to path: ./Pretraining-Based/uncased_L-12_H-768_A-12 <br>
+  
+- Download the [PMPC dataset](https://drive.google.com/file/d/1sE_N7fi_WojeQBWZcTg4Mw6Pyod27S73/view?usp=sharing) used in our paper,
+  and move to path: ```./data_PMPC``` <br>
+
+
+## Non-Pretraining-Based Models
+Train a new model.
+```
+cd Non-Pretraining-Based/C2P-X/scripts/
+bash train.sh
+```
+The training process is recorded in ```log_train_*.txt``` file. <br>
+
+Test a trained model by modifying the variable ```latest_checkpoint``` in ```test.sh```.
+```
+cd Non-Pretraining-Based/C2P-X/scripts/
+bash test.sh
+```
+The testing process is recorded in ```log_test_*.txt``` file. <br>
+A "output_test.txt" file which records scores for each context-persona pair will be saved to the path of ```latest_checkpoint```. <br>
+Modify the variable ```test_out_filename``` in ```compute_metrics.py``` and then run the following command, various metrics will be shown.
+```
+python compute_metrics.py
+```
+
+You can choose a baseline model by comment/uncomment a model package (from ```model_BOW```, ```model_BiLSTM```, ```model_Transformer``` and ```model_ESIM```) in the first several lines in ```train.py```. <br>
+The same process and commands for those Non-Pretraining-Based U2P-X Models.
+
+
+## Pretraining-Based Models
+Create the fine-tuning data.
+```
+cd Pretraining-Based/C2P-BERT/
+python data_process_tfrecord.py
+```
+
+Running the fine-tuning process.
+```
+cd Pretraining-Based/C2P-BERT/scripts/
+bash train.sh
+```
+
+Test a trained model by modifying the variable ```restore_model_dir``` in ```test.sh```.
+```
+cd Pretraining-Based/C2P-BERT/scripts/
+bash test.sh
+```
+
+Modify the variable ```test_out_filename``` in ```compute_metrics.py``` and then run the following command, various metrics will be shown.
+```
+python compute_metrics.py
+```
+
+The same process and commands for U2P-BERT.
+
+**NOTE**: Since the dataset is small, each model was trained for 10 times with identical architectures and different random initializations. <br>
+Thus, we report (mean ± standard deviation) in our paper.
+
+
+## Cite
+If you think our work is helpful, or use the code or dataset, please cite the following paper:
+**"Detecting Speaker Personas from Conversational Texts"**
+Jia-Chen Gu, Zhen-Hua Ling, Yu Wu, Quan Liu, Zhigang Chen, Xiaodan Zhu. _EMNLP (2021)_
+```
+@inproceedings{gu-etal-2021-detecting,
+ title = "Detecting Speaker Personas from Conversational Texts",
+ author = "Gu, Jia-Chen  and
+           Ling, Zhen-Hua  and
+           Wu, Yu  and
+           Liu, Quan  and
+           Chen, Zhigang  and
+           Zhu, Xiaodan",
+ booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+ month = nov,
+ year = "2021",
+ publisher = "Association for Computational Linguistics",
+}
+```
 
 
 ## Update
