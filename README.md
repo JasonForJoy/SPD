@@ -79,17 +79,20 @@ If you think our work is helpful, or use the code or dataset, please cite the fo
 Jia-Chen Gu, Zhen-Hua Ling, Yu Wu, Quan Liu, Zhigang Chen, Xiaodan Zhu. _EMNLP (2021)_
 ```
 @inproceedings{gu-etal-2021-detecting,
- title = "Detecting Speaker Personas from Conversational Texts",
- author = "Gu, Jia-Chen  and
-           Ling, Zhen-Hua  and
-           Wu, Yu  and
-           Liu, Quan  and
-           Chen, Zhigang  and
-           Zhu, Xiaodan",
- booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
- month = nov,
- year = "2021",
- publisher = "Association for Computational Linguistics",
+    title = "Detecting Speaker Personas from Conversational Texts",
+    author = "Gu, Jia-Chen  and
+              Ling, Zhenhua  and
+              Wu, Yu  and
+              Liu, Quan  and
+              Chen, Zhigang  and
+              Zhu, Xiaodan",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.86",
+    pages = "1126--1136",
 }
 ```
 
