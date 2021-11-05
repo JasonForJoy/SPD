@@ -1,5 +1,5 @@
 # Detecting Speaker Personas from Conversational Texts
-This repository contains the source code and the dataset for the _EMNLP 2021_ paper [Detecting Speaker Personas from Conversational Texts](https://arxiv.org/pdf/2109.01330.pdf). Jia-Chen Gu, Zhen-Hua Ling, Yu Wu, Quan Liu, Zhigang Chen, Xiaodan Zhu. <br>
+This repository contains the source code and the dataset for the _EMNLP 2021_ paper [Detecting Speaker Personas from Conversational Texts](https://aclanthology.org/2021.emnlp-main.86.pdf). Jia-Chen Gu, Zhen-Hua Ling, Yu Wu, Quan Liu, Zhigang Chen, Xiaodan Zhu. <br>
 
 
 ## Introduction
